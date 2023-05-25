@@ -6,8 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
+    /*
     @GetMapping("/index")
     public String getIndex() {
         return "index";
+    }
+     */
+
+    @GetMapping("/stata")
+    public String getIndex() {
+        return "stata";
     }
 }
