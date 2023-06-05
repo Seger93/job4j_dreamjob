@@ -13,11 +13,14 @@ public class Vacancy {
 
     private LocalDateTime creationDate = LocalDateTime.now();
 
-    public Vacancy(int id, String title, String description, LocalDateTime creationDate) {
+    private boolean visible;
+
+    public Vacancy(int id, String title, String description, LocalDateTime creationDate, boolean visible) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.creationDate = creationDate;
+        this.visible = visible;
     }
 
     public Vacancy() {
@@ -37,6 +40,14 @@ public class Vacancy {
 
     public LocalDateTime getCreationDate() {
         return creationDate;
+    }
+
+    public boolean getVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 
     public void setId(int id) {
