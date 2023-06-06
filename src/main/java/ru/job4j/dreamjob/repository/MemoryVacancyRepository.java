@@ -6,17 +6,18 @@ import ru.job4j.dreamjob.model.Vacancy;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @ThreadSafe
 @Repository
 public class MemoryVacancyRepository implements VacancyRepository {
 
-    private int nextId = 1;
+    private final AtomicInteger nextId = new AtomicInteger(0);
 
-    private final Map<Integer, Vacancy> vacancies = new HashMap<>();
+    private final Map<Integer, Vacancy> vacancies = new ConcurrentHashMap<>();
 
     private MemoryVacancyRepository() {
         save(new Vacancy(0, "Intern Java Developer", "Без опыта", LocalDateTime.now(), true));
@@ -29,7 +30,7 @@ public class MemoryVacancyRepository implements VacancyRepository {
 
     @Override
     public Vacancy save(Vacancy vacancy) {
-        vacancy.setId(nextId++);
+        vacancy.setId(nextId.incrementAndGet());
         vacancies.put(vacancy.getId(), vacancy);
         return vacancy;
     }
@@ -41,10 +42,9 @@ public class MemoryVacancyRepository implements VacancyRepository {
 
     @Override
     public boolean update(Vacancy vacancy) {
-        return vacancies.computeIfPresent(vacancy.getId(), (id, oldVacancy) -> {
-            return new Vacancy(oldVacancy.getId(), vacancy.getTitle(), vacancy.getDescription(),
-                    vacancy.getCreationDate(), vacancy.getVisible());
-        }) != null;
+        return vacancies.computeIfPresent(vacancy.getId(), (id, oldVacancy) ->
+                new Vacancy(oldVacancy.getId(), vacancy.getTitle(), vacancy.getDescription(),
+                vacancy.getCreationDate(), vacancy.getVisible())) != null;
     }
 
     @Override
