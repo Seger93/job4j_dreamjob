@@ -39,8 +39,9 @@ public class SimpleCandidateService implements CandidateService {
         if (fileOptional.isEmpty()) {
             return false;
         }
+        var isDeleted = candidateRepository.deleteById(id);
         fileService.deleteById(fileOptional.get().getFileId());
-        return candidateRepository.deleteById(id);
+        return isDeleted;
     }
 
     @Override
