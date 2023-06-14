@@ -32,8 +32,9 @@ public class Sql2oUserRepository implements UserRepository {
             user.setId(generatedId);
             return Optional.of(user);
         } catch (Exception e) {
-            return Optional.empty();
+            e.printStackTrace();
         }
+        return Optional.empty();
     }
 
     @Override
