@@ -1,6 +1,5 @@
 package ru.job4j.dreamjob.model;
 
-import java.util.Map;
 import java.util.Objects;
 
 public class User {
@@ -18,6 +17,9 @@ public class User {
         this.email = email;
         this.name = name;
         this.password = password;
+    }
+
+    public User() {
     }
 
     public int getId() {
