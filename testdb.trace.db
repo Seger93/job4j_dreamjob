@@ -238,3 +238,18 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибк
 Syntax error in SQL statement "INSERT INTO users(email, name, password [*]VALUES (?, ?, ?)\000a"; expected ",, )"; SQL statement:
 INSERT INTO users(email, name, password VALUES (?, ?, ?)
  [42001-214]
+2023-06-14 23:40:34 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO users(email, name, password [*]VALUES (?, ?, ?)\000a"; ожидалось ",, )"
+Syntax error in SQL statement "INSERT INTO users(email, name, password [*]VALUES (?, ?, ?)\000a"; expected ",, )"; SQL statement:
+INSERT INTO users(email, name, password VALUES (?, ?, ?)
+ [42001-214]
+2023-06-14 23:40:34 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO users(email, name, password [*]VALUES (?, ?, ?)\000a"; ожидалось ",, )"
+Syntax error in SQL statement "INSERT INTO users(email, name, password [*]VALUES (?, ?, ?)\000a"; expected ",, )"; SQL statement:
+INSERT INTO users(email, name, password VALUES (?, ?, ?)
+ [42001-214]
+2023-06-14 23:40:34 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO users(email, name, password [*]VALUES (?, ?, ?)\000a"; ожидалось ",, )"
+Syntax error in SQL statement "INSERT INTO users(email, name, password [*]VALUES (?, ?, ?)\000a"; expected ",, )"; SQL statement:
+INSERT INTO users(email, name, password VALUES (?, ?, ?)
+ [42001-214]
