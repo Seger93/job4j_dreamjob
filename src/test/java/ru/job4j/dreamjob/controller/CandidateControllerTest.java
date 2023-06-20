@@ -140,6 +140,6 @@ class CandidateControllerTest {
         var model = new ConcurrentModel();
         var view = candidateController.delete(model, 1);
 
-        assertThat(view).isEqualTo("redirect:/vacancies");
+        assertThat(view).isEqualTo("redirect:/candidates");
     }
 }
